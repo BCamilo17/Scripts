@@ -1,6 +1,5 @@
-// widget-loader.js — USO LOCAL
 (function () {
-  // URL local donde sirve tu app widget (asegúrate de ng serve --port 4300)
+  // URL del Host del widget (cambiar en producción)
   const WIDGET_URL = "http://localhost:4200/";
   const IFRAME_ID = "mf-widget-iframe";
   const CONTAINER_ID = "mf-widget-container";
@@ -14,7 +13,7 @@
     const btn = document.createElement("button");
     btn.id = BUTTON_ID;
     btn.setAttribute("aria-label", "Abrir chat");
-    btn.innerHTML = "💬";
+    btn.innerHTML = "Q";
     Object.assign(btn.style, {
       position: "fixed",
       right: "20px",
@@ -24,11 +23,11 @@
       height: "56px",
       borderRadius: "28px",
       border: "none",
-      background: "#0b84ff",
+      background: "#FE7500",
       color: "white",
       fontSize: "22px",
       cursor: "pointer",
-      boxShadow: "0 8px 24px rgba(11,132,255,0.22)",
+      boxShadow: "0 8px 24px rgba(254,117,0,0.22)",
     });
     btn.addEventListener("click", onBtnClick);
     document.body.appendChild(btn);
@@ -57,7 +56,11 @@
     iframe.src = WIDGET_URL;
     iframe.title = "Widget Chat (local)";
     iframe.setAttribute("sandbox", "allow-scripts allow-same-origin");
-    Object.assign(iframe.style, { width: "100%", height: "100%", border: "0" });
+    Object.assign(iframe.style, {
+      width: "100%",
+      height: "100%",
+      border: "0",
+    });
 
     container.appendChild(iframe);
     document.body.appendChild(container);
